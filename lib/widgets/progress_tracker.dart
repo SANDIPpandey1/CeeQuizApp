@@ -26,10 +26,7 @@ class ProgressTracker extends StatelessWidget {
               SizedBox(width: 8),
               Text(
                 'Activity Progress',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -45,7 +42,7 @@ class ProgressTracker extends StatelessWidget {
   Widget _buildActivityGrid() {
     final userProgress = UserProgress();
     final today = DateTime.now();
-    
+
     return Container(
       height: 100,
       child: GridView.builder(
@@ -60,7 +57,7 @@ class ProgressTracker extends StatelessWidget {
         itemBuilder: (context, index) {
           final date = today.subtract(Duration(days: 104 - index));
           final level = userProgress.getActivityLevel(date);
-          
+
           return Container(
             decoration: BoxDecoration(
               color: _getColorForLevel(level),
@@ -98,12 +95,18 @@ class ProgressTracker extends StatelessWidget {
 
   Color _getColorForLevel(int level) {
     switch (level) {
-      case 0: return Colors.grey[200]!;
-      case 1: return Colors.green[200]!;
-      case 2: return Colors.green[400]!;
-      case 3: return Colors.green[600]!;
-      case 4: return Colors.green[800]!;
-      default: return Colors.grey[200]!;
+      case 0:
+        return Colors.grey[200]!;
+      case 1:
+        return Colors.green[200]!;
+      case 2:
+        return Colors.green[400]!;
+      case 3:
+        return Colors.green[600]!;
+      case 4:
+        return Colors.green[800]!;
+      default:
+        return Colors.grey[200]!;
     }
   }
 }
